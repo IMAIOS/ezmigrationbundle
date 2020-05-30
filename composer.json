@@ -1,5 +1,5 @@
 {
-    "name": "ezsystems/ezmigrationbundle",
+    "name": "imaios/ezmigrationbundle",
     "type": "symfony-bundle",
     "description": "Kaliop eZ-Migration Bundle",
     "keywords": ["migrations", "database", "ezpublish"],
