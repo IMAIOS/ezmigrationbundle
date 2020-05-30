@@ -251,11 +251,11 @@ EOT
                     throw new \Exception("The combination of migration type '$migrationType' is not supported with format '$fileType'");
                 }
 
-                $code = $this->getContainer()->get('twig')->render($this->thisBundle . ':MigrationTemplate:' . $template, $parameters);
+                $code = $this->getContainer()->get('twig')->render('@'.$this->thisBundle . '/MigrationTemplate/' . $template, $parameters);
 
                 // allow event handlers to replace data
                 $event = new MigrationGeneratedEvent($migrationType, $migrationMode, $fileType, $code, $filePath);
-                $this->getContainer()->get('event_dispatcher')->dispatch($this->eventName, $event);
+                $this->getContainer()->get('event_dispatcher')->dispatch($event);
                 $code = $event->getData();
                 $filePath = $event->getFile();
 
@@ -280,7 +280,7 @@ EOT
 
                 // allow event handlers to replace data
                 $event = new MigrationGeneratedEvent($migrationType, $migrationMode, $fileType, $data, $filePath, $matchCondition, $context);
-                $this->getContainer()->get('event_dispatcher')->dispatch($this->eventName, $event);
+                $this->getContainer()->get('event_dispatcher')->dispatch($event);
                 $data = $event->getData();
                 $filePath = $event->getFile();
 
