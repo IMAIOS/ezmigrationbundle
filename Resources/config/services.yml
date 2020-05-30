@@ -816,6 +816,7 @@ services:
             - { name: kernel.event_listener, event: console.command }
 
     ez_migration_bundle.helper.config.resolver:
+        public: true
         class: '%ez_migration_bundle.helper.config.resolver%'
         arguments:
             - '@ezpublish.config.resolver'
