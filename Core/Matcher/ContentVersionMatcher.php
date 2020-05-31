@@ -80,7 +80,8 @@ class ContentVersionMatcher extends RepositoryMatcher implements MatcherInterfac
         if ($count !== 1) {
             throw new InvalidMatchResultsNumberException("Found $count " . $this->returns . " when expected exactly only one to match the conditions");
         }
-        return reset($results);
+        $storagearray = (array) $results;
+        return reset($storagearray);
     }
 
     /**
