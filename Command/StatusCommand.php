@@ -50,7 +50,7 @@ EOT
 
         if (!count($migrationDefinitions) && !count($migrations)) {
             $output->writeln('<info>No migrations found</info>');
-            return;
+            return 0;
         }
 
         // create a unique ist of all migrations (coming from db) and definitions (coming from disk)
@@ -195,7 +195,7 @@ EOT
             foreach ($data as $migrationData) {
                 echo "$migrationData\n";
             }
-            return;
+            return 0;
         }
 
         if ($input->getOption('summary')) {
@@ -213,5 +213,7 @@ EOT
             ->setHeaders($headers)
             ->setRows($data);
         $table->render();
+
+        return 0;
     }
 }
