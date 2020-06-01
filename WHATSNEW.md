@@ -1,3 +1,6 @@
+Adapted for eZ Platform 3 Open source edition
+
+
 Version 5.10.1
 ==============
 
